@@ -11,7 +11,6 @@ def _get_llm():
     return ChatAnthropic(
         model="claude-sonnet-4-6",
         api_key=settings.anthropic_api_key,
-        base_url=settings.anthropic_base_url,
         max_tokens=2048,
     )
 
