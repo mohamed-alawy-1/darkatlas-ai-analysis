@@ -1,7 +1,7 @@
 import json
 from datetime import datetime, timezone
 from langchain_anthropic import ChatAnthropic
-from langchain.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser, StrOutputParser
 
 from app.core.config import settings
@@ -9,8 +9,9 @@ from app.core.config import settings
 
 def _get_llm():
     return ChatAnthropic(
-        model="claude-haiku-4-5-20251001",
+        model="claude-sonnet-4-6",
         api_key=settings.anthropic_api_key,
+        base_url=settings.anthropic_base_url,
         max_tokens=2048,
     )
 

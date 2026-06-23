@@ -69,10 +69,7 @@ async def analyze(body: AnalyzeRequest, db: AsyncSession = Depends(get_db)):
             asset.criticality = result.get("criticality")
             meta = {**(asset.metadata_ or {}), **result.get("enriched_metadata", {})}
             asset.metadata_ = meta
-            from app.core.database import AsyncSessionLocal
-            async with AsyncSessionLocal() as s:
-                s.add(asset)
-                await s.commit()
+            await db.commit()
         return result
 
     if mode == "report":
