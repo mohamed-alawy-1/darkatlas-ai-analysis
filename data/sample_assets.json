@@ -1,0 +1,79 @@
+[
+  {
+    "id": "a1", "type": "domain", "value": "example.com",
+    "status": "active", "source": "scan", "tags": ["root"], "metadata": {}
+  },
+  {
+    "id": "a2", "type": "subdomain", "value": "api.example.com",
+    "status": "active", "source": "scan", "tags": ["prod", "api"],
+    "metadata": {}, "parent": "a1"
+  },
+  {
+    "id": "a3", "type": "subdomain", "value": "staging.example.com",
+    "status": "active", "source": "scan", "tags": ["staging"],
+    "metadata": {}, "parent": "a1"
+  },
+  {
+    "id": "a4", "type": "subdomain", "value": "dev.example.com",
+    "status": "stale", "source": "scan", "tags": ["dev"],
+    "metadata": {}, "parent": "a1"
+  },
+  {
+    "id": "a5", "type": "ip_address", "value": "93.184.216.34",
+    "status": "active", "source": "scan", "tags": [],
+    "metadata": {"asn": "AS15133", "country": "US"}
+  },
+  {
+    "id": "a6", "type": "ip_address", "value": "203.0.113.10",
+    "status": "active", "source": "scan", "tags": [],
+    "metadata": {"asn": "AS64496", "country": "DE"}
+  },
+  {
+    "id": "a7", "type": "service", "value": "93.184.216.34:443",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"port": 443, "protocol": "https", "banner": "nginx/1.24"}
+  },
+  {
+    "id": "a8", "type": "service", "value": "93.184.216.34:22",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"port": 22, "protocol": "ssh", "banner": "OpenSSH_8.9"}
+  },
+  {
+    "id": "a9", "type": "service", "value": "203.0.113.10:3306",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"port": 3306, "protocol": "mysql", "banner": "MySQL 5.7"}
+  },
+  {
+    "id": "a10", "type": "certificate", "value": "CN=api.example.com",
+    "status": "active", "source": "scan", "tags": [],
+    "metadata": {"issuer": "Let's Encrypt", "expires": "2025-01-02T00:00:00Z"},
+    "covers": "a2"
+  },
+  {
+    "id": "a11", "type": "certificate", "value": "CN=example.com",
+    "status": "active", "source": "scan", "tags": [],
+    "metadata": {"issuer": "DigiCert", "expires": "2026-12-01T00:00:00Z"},
+    "covers": "a1"
+  },
+  {
+    "id": "a12", "type": "certificate", "value": "CN=staging.example.com",
+    "status": "active", "source": "scan", "tags": [],
+    "metadata": {"issuer": "Let's Encrypt", "expires": "2026-07-10T00:00:00Z"},
+    "covers": "a3"
+  },
+  {
+    "id": "a13", "type": "technology", "value": "nginx",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"version": "1.24"}
+  },
+  {
+    "id": "a14", "type": "technology", "value": "mysql",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"version": "5.7", "eol": "2023-10-31"}
+  },
+  {
+    "id": "a15", "type": "technology", "value": "react",
+    "status": "active", "source": "scan", "tags": ["prod"],
+    "metadata": {"version": "18.2"}
+  }
+]
